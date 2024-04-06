@@ -1,9 +1,19 @@
-import './App.css'
+import axios from "axios";
+import "./App.css";
+import Herosection from "./components/Herosection";
+import Navbar from "./components/Navbar";
 
 function App() {
+  axios.get("https://neutrino-dev.com/api/customers").then(function (response) {
+    console.log(response);
+  });
+
   return (
-    <div><h2 className='font-semibold'>Neutrino</h2></div>
-  )
+    <>
+      <Navbar />
+      <Herosection />
+    </>
+  );
 }
 
-export default App
+export default App;

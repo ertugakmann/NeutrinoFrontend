@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { IoMdMenu } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   // State to manage the navbar's visibility
@@ -9,15 +10,6 @@ const Navbar = () => {
   const handleNav = () => {
     setNav(!nav);
   };
-
-  // Array containing navigation items
-  const navItems = [
-    { id: 1, text: "Home" },
-    { id: 2, text: "Company" },
-    { id: 3, text: "Resources" },
-    { id: 4, text: "About" },
-    { id: 5, text: "Contact" },
-  ];
 
   const [toggleMenu, setToggleMenu] = useState(false);
 
@@ -46,13 +38,13 @@ const Navbar = () => {
               >
                 Home
               </a>
-              <a
-                href="#"
+              <Link
+                to="/rentFeed"
                 className="transition ease-in-out delay-50 hover:-translate-y-1
               duration-300"
               >
                 Rent A Car
-              </a>
+              </Link>
               <a
                 href="#"
                 className="transition ease-in-out delay-50 hover:-translate-y-1

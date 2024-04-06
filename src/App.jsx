@@ -2,16 +2,20 @@ import axios from "axios";
 import "./App.css";
 import Herosection from "./components/Herosection";
 import Navbar from "./components/Navbar";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import RentFeed from "./components/RentFeed";
 
 function App() {
-  axios.get("https://neutrino-dev.com/api/customers").then(function (response) {
-    console.log(response);
-  });
-
   return (
     <>
-      <Navbar />
-      <Herosection />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/rentFeed" element={<RentFeed />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

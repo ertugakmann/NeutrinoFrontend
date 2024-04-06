@@ -1,132 +1,113 @@
 import React, { useState } from "react";
 import { IoMdMenu } from "react-icons/io";
 
-function Navbar() {
-  const [isMenuOpen, setisMenuOpen] = useState(false);
+const Navbar = () => {
+  // State to manage the navbar's visibility
+  const [nav, setNav] = useState(false);
+
+  // Toggle function to handle the navbar's display
+  const handleNav = () => {
+    setNav(!nav);
+  };
+
+  // Array containing navigation items
+  const navItems = [
+    { id: 1, text: "Home" },
+    { id: 2, text: "Company" },
+    { id: 3, text: "Resources" },
+    { id: 4, text: "About" },
+    { id: 5, text: "Contact" },
+  ];
+
+  const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
-    <div className="w-full h-20 bg-midnight-sea">
-      <div className="flex justify-between items-center h-full px-10">
-        <div className="text-white">
-          <h1 className="font-semibold uppercase tracking-wider text-2xl">
-            Neutrino
-          </h1>
-        </div>
-        <ul className="hidden md:flex lg:gap-11 sm:gap-7 lg:pr-32">
-          <li>
-            <button
-              className="text-white font-semibold  tracking-wide
-              transition ease-in-out delay-50 hover:-translate-y-1
-              duration-300"
-            >
-              <a>Home</a>
-            </button>
-          </li>
-          <li>
-            <button
-              className="text-white font-semibold  tracking-wide
-              transition ease-in-out delay-50 hover:-translate-y-1
-              duration-300"
-            >
-              <a>Rent A Car</a>
-            </button>
-          </li>
-          <li>
-            <button
-              className="text-white font-semibold  tracking-wide
-              transition ease-in-out delay-50 hover:-translate-y-1
-              duration-300"
-            >
-              <a>Contact</a>
-            </button>
-          </li>
-          <li>
-            <button
-              className="text-white font-semibold tracking-wide
-              transition ease-in-out delay-50 hover:-translate-y-1
-              duration-300"
-            >
-              <a>All Services</a>
-            </button>
-          </li>
-          <li>
-            <button
-              className="text-white font-semibold  tracking-wide
-              transition ease-in-out delay-50 hover:-translate-y-1
-              duration-300"
-            >
-              <a>About</a>
-            </button>
-          </li>
-        </ul>
-        <div className="md:hidden flex">
-          <IoMdMenu
-            onClick={() => setisMenuOpen(!isMenuOpen)}
-            color="white"
-            size={35}
-          />
-        </div>
-      </div>
-
-      {/* Responsive Menu */}
-
-      <div
-        className={`${
-          isMenuOpen ? "block" : "hidden"
-        } md:hidden bg-midnight-sea w-full h-[300px] transition ease-in-out delay-150`}
-      >
-        <ul className="flex flex-col justify-center text-center gap-y-10 transition-300 ease-in bg-midnight-sea">
-          <div className="flex flex-col bg-midnight-sea gap-y-11">
-            <li className="bg-midnight-sea">
-              <button
-                className="text-white font-semibold  tracking-wide
-              transition ease-in-out delay-50 hover:-translate-y-1
+    <>
+      <div className="w-full bg-gradient-to-r from-slate-900 to-slate-700 h-20">
+        <div className="flex mx-auto justify-between w-5/6 ">
+          {/* Primary menu and logo */}
+          <div className="flex items-center gap-16 my-6 text-lg justify-between">
+            <div>
+              <a
+                href="/"
+                className="flex font-semibold text-white items-center "
+              >
+                <span className="text-3xl uppercase tracking-wide">
+                  Neutrino
+                </span>
+              </a>
+            </div>
+            {/* primary */}
+            <div className="hidden lg:flex gap-8 text-white font-semibold text-[16px] ">
+              <a
+                href="#"
+                className="transition ease-in-out delay-50 hover:-translate-y-1
               duration-300"
               >
-                <a>Home</a>
-              </button>
-            </li>
-            <li className="bg-midnight-sea">
-              <button
-                className="text-white font-semibold  tracking-wide
-              transition ease-in-out delay-50 hover:-translate-y-1
+                Home
+              </a>
+              <a
+                href="#"
+                className="transition ease-in-out delay-50 hover:-translate-y-1
               duration-300"
               >
-                <a>Rent A Car</a>
-              </button>
-            </li>
-            <li>
-              <button
-                className="text-white font-semibold  tracking-wide
-              transition ease-in-out delay-50 hover:-translate-y-1
+                Rent A Car
+              </a>
+              <a
+                href="#"
+                className="transition ease-in-out delay-50 hover:-translate-y-1
               duration-300"
               >
-                <a>Contact</a>
-              </button>
-            </li>
-            <li>
-              <button
-                className="text-white font-semibold tracking-wide
-              transition ease-in-out delay-50 hover:-translate-y-1
+                Contact
+              </a>
+              <a
+                href="#"
+                className="transition ease-in-out delay-50 hover:-translate-y-1
               duration-300"
               >
-                <a>All Services</a>
-              </button>
-            </li>
-            <li className="mb-5">
-              <button
-                className="text-white font-semibold  tracking-wide
-              transition ease-in-out delay-50 hover:-translate-y-1
+                All Services
+              </a>
+              <a
+                href="#"
+                className="transition ease-in-out delay-50 hover:-translate-y-1
               duration-300"
               >
-                <a>About</a>
-              </button>
-            </li>
+                About
+              </a>
+            </div>
           </div>
-        </ul>
+          {/* secondary */}
+          <div className="flex gap-6">
+            <div className="hidden xs:flex items-center gap-10"></div>
+            {/* Mobile navigation toggle */}
+            <div className="lg:hidden flex items-center">
+              <button onClick={() => setToggleMenu(!toggleMenu)}>
+                <IoMdMenu color="white" size={35} />
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+      {/* mobile navigation */}
+      <div
+        className={`fixed z-40 w-full  bg-gray-100 overflow-hidden flex flex-col lg:hidden gap-12  origin-top duration-700  ${
+          !toggleMenu ? "h-0" : "h-full"
+        }`}
+      >
+        <div className="px-8">
+          <div className="flex flex-col gap-8 font-bold tracking-wider mt-7">
+            <a href="#" className="border-l-4 border-gray-600">
+              Home
+            </a>
+            <a href="#">Rent A Car</a>
+            <a href="#">Contact</a>
+            <a href="#">All services</a>
+            <a href="#">About</a>
+          </div>
+        </div>
+      </div>
+    </>
   );
-}
+};
 
 export default Navbar;

@@ -4,9 +4,9 @@ export default {
 
   theme: {
     extend: {
-      colors: (theme) => ({
+      colors: {
         "midnight-sea": "#051118",
-      }),
+      },
     },
   },
   plugins: [],

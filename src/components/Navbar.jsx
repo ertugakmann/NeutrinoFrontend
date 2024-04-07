@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="w-full bg-gradient-to-r from-slate-900 to-slate-700 h-20">
+      <div className="w-full bg-gradient-to-r from-slate-900 to-slate-700 drop-shadow-2xl shadow-black h-20">
         <div className="flex mx-auto justify-between w-5/6 ">
           {/* Primary menu and logo */}
           <div className="flex items-center gap-16 my-6 text-lg justify-between">

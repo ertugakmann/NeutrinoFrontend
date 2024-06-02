@@ -13,12 +13,6 @@ import { FaRegIdCard } from "react-icons/fa";
 import { CiCreditCard1 } from "react-icons/ci";
 
 function RentFeed() {
-  useEffect(() => {
-    axios.get("https://neutrino-dev.com/api/Brands").then(function (response) {
-      console.log(response.data.data);
-    });
-  }, []);
-
   return (
     <>
       <Navbar />
@@ -54,7 +48,7 @@ function RentFeed() {
             <div className="w-full h-full p-3">
               <img src={CarPhoto} className="w-full" />
             </div>
-            <div class="flex flex-1 md:gap-16  gap-4 ml-7 mt-5">
+            <div className="flex flex-1 md:gap-16  gap-4 ml-7 mt-5">
               <div className="flex flex-col">
                 <h2 className="font-semibold text-sm text-midnight-sea tracking-wide">
                   Araç Özellikleri
@@ -78,7 +72,7 @@ function RentFeed() {
                   </li>
                 </ul>
               </div>
-              <div class="h-[250px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400"></div>
+              <div className="h-[250px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400"></div>
               <div className="flex flex-col">
                 <h2 className="font-semibold text-sm text-midnight-sea tracking-wide">
                   Kiralama Koşulları
@@ -122,7 +116,7 @@ function RentFeed() {
             <div className="w-full h-full p-3">
               <img src={CarPhoto} className="w-full" />
             </div>
-            <div class="flex flex-1 gap-16 ml-7 mt-5">
+            <div className="flex flex-1 gap-16 ml-7 mt-5">
               <div className="flex flex-col">
                 <h2 className="font-semibold text-sm text-midnight-sea tracking-wide">
                   Araç Özellikleri
@@ -146,7 +140,7 @@ function RentFeed() {
                   </li>
                 </ul>
               </div>
-              <div class="h-[250px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400"></div>
+              <div className="h-[250px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400"></div>
               <div className="flex flex-col">
                 <h2 className="font-semibold text-sm text-midnight-sea tracking-wide">
                   Kiralama Koşulları
@@ -190,7 +184,7 @@ function RentFeed() {
             <div className="w-full h-full p-3">
               <img src={CarPhoto} className="w-full" />
             </div>
-            <div class="flex flex-1 gap-16 ml-7 mt-5">
+            <div className="flex flex-1 gap-16 ml-7 mt-5">
               <div className="flex flex-col">
                 <h2 className="font-semibold text-sm text-midnight-sea tracking-wide">
                   Araç Özellikleri
@@ -214,7 +208,7 @@ function RentFeed() {
                   </li>
                 </ul>
               </div>
-              <div class="h-[250px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400"></div>
+              <div className="h-[250px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400"></div>
               <div className="flex flex-col">
                 <h2 className="font-semibold text-sm text-midnight-sea tracking-wide">
                   Kiralama Koşulları
@@ -258,7 +252,7 @@ function RentFeed() {
             <div className="w-full h-full p-3">
               <img src={CarPhoto} className="w-full" />
             </div>
-            <div class="flex flex-1 gap-16 ml-7 mt-5">
+            <div className="flex flex-1 gap-16 ml-7 mt-5">
               <div className="flex flex-col">
                 <h2 className="font-semibold text-sm text-midnight-sea tracking-wide">
                   Araç Özellikleri
@@ -282,7 +276,7 @@ function RentFeed() {
                   </li>
                 </ul>
               </div>
-              <div class="h-[250px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400"></div>
+              <div className="h-[250px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400"></div>
               <div className="flex flex-col">
                 <h2 className="font-semibold text-sm text-midnight-sea tracking-wide">
                   Kiralama Koşulları

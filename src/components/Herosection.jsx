@@ -9,27 +9,19 @@ import { IoIosArrowForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 const people = [
-  { id: 1, name: "Mercedes" },
-  { id: 2, name: "BMW" },
-  { id: 3, name: "AUDI" },
-  { id: 4, name: "Tom Cook" },
-  { id: 5, name: "Tanya Fox" },
-  { id: 6, name: "Hellen Schmidt" },
+  { id: 1, name: "London" },
+  { id: 2, name: "Brighton" },
+  { id: 3, name: "Southampton" },
+  { id: 4, name: "Bournemouth" },
+  { id: 5, name: "Manchester" },
+  { id: 6, name: "Liverpool" },
 ];
 
 function Herosection() {
   const [selected, setSelected] = useState(people[0]);
   const [query, setQuery] = useState("");
   const [startDate, setStartDate] = useState(new Date());
-
-  axios
-    .get("https://neutrino-dev.com/api/cities")
-    .then((res) => {
-      console.log(res.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  const [finishDate, setFinishDate] = useState(new Date());
 
   const filteredPeople =
     query === ""
@@ -59,25 +51,19 @@ function Herosection() {
           <p className="text-xl">
             Your one stop shop for all your car rental needs
           </p>
-          <button
-            className="bg-white hover:bg-gray-200 transition ease-in-out delay-50 hover:-translate-y-1
-              duration-300 rounded-lg text-black px-4 py-2 mt-4"
-          >
-            <Link to="/rentFeed">Başla</Link>
-          </button>
         </div>
         <div className="h-80 w-[93%] md:w-[450px] mt-16 items-center bg-white rounded-[30px] p-5">
           {/* Teslim Alma Ofisi Input */}
-          <div class="flex flex-1">
-            <p class="mb-7 text-midnight-sea text-center">Teslim Alma Ofisi</p>
-            <div class="inline-block ml-0.5 h-[45px] min-h-[1em] w-0.5 self-stretch bg-[#10192C]"></div>
+          <div className="flex flex-1">
+            <p className="mb-7 text-midnight-sea text-center">Reception Desk</p>
+            <div className="inline-block ml-0.5 h-[45px] min-h-[1em] w-0.5 self-stretch bg-[#10192C]"></div>
             <div className="ml-4 mb-3 w-72">
               <Combobox value={selected} onChange={setSelected}>
-                <div className="relative mt-1 ">
-                  <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+                <div className="relative mt-1 z-10 ">
+                  <div className="relative w-full  cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
                     <Combobox.Input
                       className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 bg-[whitesmoke] focus:ring-0"
-                      displayValue={(person) => person.name}
+                      displayValue={(office) => office.name}
                       onChange={(event) => setQuery(event.target.value)}
                     />
                     <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2"></Combobox.Button>
@@ -135,10 +121,12 @@ function Herosection() {
             </div>
           </div>
           {/* Teslim Etme Ofisi Input */}
-          <div class="flex flex-1">
-            <p class="mb-7 text-midnight-sea text-center">Teslım Etme Ofisi</p>
-            <div class="inline-block ml-0.5 h-[45px] min-h-[1em] w-0.5 self-stretch bg-[#10192C]"></div>
-            <div className="ml-4 mb-3 w-72">
+          <div className="flex flex-1">
+            <p className="mb-7 text-midnight-sea text-center">
+              Delivery Location
+            </p>
+            <div className="inline-block h-[45px] min-h-[1em] w-0.5 self-stretch bg-[#10192C] relative left-[-8px] "></div>
+            <div className="ml-2 mb-3 w-72">
               <Combobox value={selected} onChange={setSelected}>
                 <div className="relative mt-1 ">
                   <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
@@ -210,8 +198,8 @@ function Herosection() {
             />
             <hr className="w-[30px] mt-4 ml-4" />
             <DatePicker
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
+              selected={finishDate}
+              onChange={(date) => setFinishDate(date)}
               className="w-[150px] py-2 ml-5  text-md  tracking-wide text-gray-900 bg-[whitesmoke] text-center"
             />
           </div>

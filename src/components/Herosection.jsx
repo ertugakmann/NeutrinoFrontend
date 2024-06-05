@@ -7,6 +7,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { IoIosArrowForward } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addRental } from "../features/rentals/rentalSlice.jsx";
 
 const people = [
   { id: 1, name: "London" },
@@ -18,13 +20,21 @@ const people = [
 ];
 
 function Herosection() {
-  const [selected, setSelected] = useState(people[0]);
-  const [query, setQuery] = useState("");
+  const [selectedDeliveryOffice, setSelectedDeliveryOffice] = useState(
+    people[0]
+  );
+  const [selectedReceptionDesk, setSelectedReceptionDesk] = useState(people[0]);
+  const [receptionDesk, setReceptionDesk] = useState("");
+  const [deliveryOffice, setDeliveryOffice] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [finishDate, setFinishDate] = useState(new Date());
 
+  const dispatch = useDispatch();
+
+  console.log(useSelector((state) => state.rentals.rentals));
+
   const filteredPeople =
-    query === ""
+    setDeliveryOffice || setReceptionDesk === ""
       ? people
       : people.filter((person) =>
           person.name
@@ -58,13 +68,16 @@ function Herosection() {
             <p className="mb-7 text-midnight-sea text-center">Reception Desk</p>
             <div className="inline-block ml-0.5 h-[45px] min-h-[1em] w-0.5 self-stretch bg-[#10192C]"></div>
             <div className="ml-4 mb-3 w-72">
-              <Combobox value={selected} onChange={setSelected}>
+              <Combobox
+                value={selectedReceptionDesk}
+                onChange={setSelectedReceptionDesk}
+              >
                 <div className="relative mt-1 z-10 ">
                   <div className="relative w-full  cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
                     <Combobox.Input
                       className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 bg-[whitesmoke] focus:ring-0"
                       displayValue={(office) => office.name}
-                      onChange={(event) => setQuery(event.target.value)}
+                      onChange={(event) => setReceptionDesk(event.target.value)}
                     />
                     <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2"></Combobox.Button>
                   </div>
@@ -73,10 +86,10 @@ function Herosection() {
                     leave="transition ease-in duration-100"
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
-                    afterLeave={() => setQuery("")}
+                    afterLeave={() => setReceptionDesk("")}
                   >
                     <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                      {filteredPeople.length === 0 && query !== "" ? (
+                      {filteredPeople.length === 0 && receptionDesk !== "" ? (
                         <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                           Nothing found.
                         </div>
@@ -127,13 +140,18 @@ function Herosection() {
             </p>
             <div className="inline-block h-[45px] min-h-[1em] w-0.5 self-stretch bg-[#10192C] relative left-[-8px] "></div>
             <div className="ml-2 mb-3 w-72">
-              <Combobox value={selected} onChange={setSelected}>
+              <Combobox
+                value={selectedDeliveryOffice}
+                onChange={setSelectedDeliveryOffice}
+              >
                 <div className="relative mt-1 ">
-                  <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+                  <div className="relative  w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
                     <Combobox.Input
                       className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 bg-[whitesmoke] focus:ring-0"
                       displayValue={(person) => person.name}
-                      onChange={(event) => setQuery(event.target.value)}
+                      onChange={(event) =>
+                        setDeliveryOffice(event.target.value)
+                      }
                     />
                     <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2"></Combobox.Button>
                   </div>
@@ -142,10 +160,10 @@ function Herosection() {
                     leave="transition ease-in duration-100"
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
-                    afterLeave={() => setQuery("")}
+                    afterLeave={() => setDeliveryOffice("")}
                   >
-                    <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                      {filteredPeople.length === 0 && query !== "" ? (
+                    <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                      {filteredPeople.length === 0 && deliveryOffice !== "" ? (
                         <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                           Nothing found.
                         </div>
@@ -207,6 +225,14 @@ function Herosection() {
             <button
               className="bg-[red] hover:bg-red-600 transition ease-in-out delay-50 hover:-translate-x-[-5px]
               duration-300 rounded-lg text-white px-4 py-2 mt-4 font-semibold flex items-center "
+              onClick={() => {
+                dispatch(
+                  addRental({
+                    selectedDeliveryOffice: selectedDeliveryOffice,
+                    selectedReceptionDesk: selectedReceptionDesk,
+                  })
+                );
+              }}
             >
               <Link to="/rentFeed">Fırsatlara Göz At</Link>
               <IoIosArrowForward className="ml-2 rounded-2xl" />

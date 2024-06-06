@@ -14,23 +14,11 @@
       ]
     }
   ],
-
   "Brighton": [
     {
-      "carNames": [
-        "Mercedes A180",
-        "Opel Astra",
-        "Fiat Egea",
-        "BMW 3 Series",
-        "Volkswagen Golf",
-        "Audi A4",
-        "Ford Focus",
-        "Toyota Corolla",
-        "Honda Civic"
-      ]
+      "carNames": ["Mercedes A180"]
     }
   ],
-
   "Bournemouth": [
     {
       "carNames": [
@@ -46,7 +34,6 @@
       ]
     }
   ],
-
   "Liverpool": [
     {
       "carNames": [
@@ -62,7 +49,6 @@
       ]
     }
   ],
-
   "Manchester": [
     {
       "carNames": [
@@ -75,10 +61,10 @@
         "Ford Focus",
         "Toyota Corolla",
         "Honda Civic"
-      ]
+      ],
+      "id": "a59e"
     }
   ],
-
   "Southampton": [
     {
       "carNames": [

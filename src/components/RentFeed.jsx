@@ -11,8 +11,26 @@ import { TbManualGearbox } from "react-icons/tb";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaRegIdCard } from "react-icons/fa";
 import { CiCreditCard1 } from "react-icons/ci";
+import { useSelector } from "react-redux";
 
 function RentFeed() {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await axios.get(`http://localhost:3000/London`);
+        console.log(result.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const receptionOffice = useSelector((state) => state.rentals.rentals);
+
+  console.log(receptionOffice);
+
   return (
     <>
       <Navbar />

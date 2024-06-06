@@ -31,8 +31,6 @@ function Herosection() {
 
   const dispatch = useDispatch();
 
-  console.log(useSelector((state) => state.rentals.rentals));
-
   const filteredPeople =
     setDeliveryOffice || setReceptionDesk === ""
       ? people
@@ -42,6 +40,10 @@ function Herosection() {
             .replace(/\s+/g, "")
             .includes(query.toLowerCase().replace(/\s+/g, ""))
         );
+
+  const handleSaveRental = () => {
+    dispatch(addRental(selectedDeliveryOffice));
+  };
 
   return (
     <div className="w-full h-[100vh] flex justify-between items-center">
@@ -225,14 +227,7 @@ function Herosection() {
             <button
               className="bg-[red] hover:bg-red-600 transition ease-in-out delay-50 hover:-translate-x-[-5px]
               duration-300 rounded-lg text-white px-4 py-2 mt-4 font-semibold flex items-center "
-              onClick={() => {
-                dispatch(
-                  addRental({
-                    selectedDeliveryOffice: selectedDeliveryOffice,
-                    selectedReceptionDesk: selectedReceptionDesk,
-                  })
-                );
-              }}
+              onClick={handleSaveRental}
             >
               <Link to="/rentFeed">Fırsatlara Göz At</Link>
               <IoIosArrowForward className="ml-2 rounded-2xl" />

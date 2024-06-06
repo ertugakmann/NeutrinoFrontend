@@ -1,0 +1,97 @@
+{
+  "London": [
+    {
+      "carNames": [
+        "Mercedes A180",
+        "Opel Astra",
+        "Fiat Egea",
+        "BMW 3 Series",
+        "Volkswagen Golf",
+        "Audi A4",
+        "Ford Focus",
+        "Toyota Corolla",
+        "Honda Civic"
+      ]
+    }
+  ],
+
+  "Brighton": [
+    {
+      "carNames": [
+        "Mercedes A180",
+        "Opel Astra",
+        "Fiat Egea",
+        "BMW 3 Series",
+        "Volkswagen Golf",
+        "Audi A4",
+        "Ford Focus",
+        "Toyota Corolla",
+        "Honda Civic"
+      ]
+    }
+  ],
+
+  "Bournemouth": [
+    {
+      "carNames": [
+        "Mercedes A180",
+        "Opel Astra",
+        "Fiat Egea",
+        "BMW 3 Series",
+        "Volkswagen Golf",
+        "Audi A4",
+        "Ford Focus",
+        "Toyota Corolla",
+        "Honda Civic"
+      ]
+    }
+  ],
+
+  "Liverpool": [
+    {
+      "carNames": [
+        "Mercedes A180",
+        "Opel Astra",
+        "Fiat Egea",
+        "BMW 3 Series",
+        "Volkswagen Golf",
+        "Audi A4",
+        "Ford Focus",
+        "Toyota Corolla",
+        "Honda Civic"
+      ]
+    }
+  ],
+
+  "Manchester": [
+    {
+      "carNames": [
+        "Mercedes A180",
+        "Opel Astra",
+        "Fiat Egea",
+        "BMW 3 Series",
+        "Volkswagen Golf",
+        "Audi A4",
+        "Ford Focus",
+        "Toyota Corolla",
+        "Honda Civic"
+      ]
+    }
+  ],
+
+  "Southampton": [
+    {
+      "carNames": [
+        "Mercedes A180",
+        "Opel Astra",
+        "Fiat Egea",
+        "BMW 3 Series",
+        "Volkswagen Golf",
+        "Audi A4",
+        "Ford Focus",
+        "Toyota Corolla",
+        "Honda Civic"
+      ]
+    }
+  ]
+}
